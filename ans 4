@@ -1,0 +1,41 @@
+public class PlusOne {
+    public static int[] plusOne(int[] digits) {
+        int n = digits.length;
+        
+        // Iterate from right to left
+        for (int i = n - 1; i >= 0; i--) {
+            // Increment the current digit
+            digits[i]++;
+            
+            // Check if there's a carry
+            if (digits[i] < 10) {
+                // No carry, return the digits
+                return digits;
+            }
+            
+            // Carry occurred, set the current digit to 0
+            digits[i] = 0;
+        }
+        
+      
+        int[] result = new int[n + 1];
+        result[0] = 1;
+        
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        int[] digits = {1, 2, 3};
+        
+        int[] result = plusOne(digits);
+        
+        System.out.print("Output: [");
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i]);
+            if (i < result.length - 1) {
+                System.out.print(",");
+            }
+        }
+        System.out.println("]");
+    }
+}
